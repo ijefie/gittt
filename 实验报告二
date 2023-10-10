@@ -42,8 +42,11 @@ def nearest_sq(n):
 一个有效的实验必须满足三个条件：
 
 参数 "h"（米）必须大于0
+
 参数 "bounce "必须大于0且小于1
+
 参数 “window "必须小于h。
+
 如果以上三个条件都满足，返回一个正整数，否则返回-1。 注意:只有当反弹球的高度严格大于窗口参数时，才能看到球。
 ```python
 def bouncing_ball(h, bounce, window):
