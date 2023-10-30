@@ -80,7 +80,7 @@ def even_or_odd(number):
 ```mermaid
 flowchart  LR
 Start(开始) --> Scanf[用户输入]
-    Scanf --> |判断|If[是否是偶数]
+    Scanf --> |判断|If{是否是偶数}
 If --> |输出|ou[是偶数]
 If --> |输出|ji[是奇数]
     ou --> End(结束)

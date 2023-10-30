@@ -132,7 +132,7 @@ def disemvowel(string_):
 ```mermaid
 flowchart  LR
 Start(开始) --> Scanf[用户输入]
-    Scanf --> |判断|If[是否可以整除3]
+    Scanf --> |判断|If{是否可以整除3}
 If --> |不可以|ou[是否可以整除5]
 If --> |可以|ji[是3或5的倍数]
 ou --> |可以|ji[是3或5的倍数]
