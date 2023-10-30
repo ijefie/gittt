@@ -259,14 +259,7 @@ $    ···–··–
 3. 使用Mermaid绘制程序流程图
 ```mermaid
 flowchart  LR
-Start(开始) --> Scanf[用户输入]
-    Scanf --> |判断|If[是否可以整除3]
-If --> |不可以|ou[是否可以整除5]
-If --> |可以|ji[是3或5的倍数]
-ou --> |可以|ji[是3或5的倍数]
-ou --> |不可以|bu[不是3或5的倍数]
-    bu --> End(结束)
-    ji --> End(结束)
+
 
 ```
 
@@ -279,18 +272,21 @@ ou --> |不可以|bu[不是3或5的倍数]
 
 2. 在读取和写入字典时，需要使用默认值可以使用什么方法？
 
-可以使用两种方法：
+      可以使用两种方法：
 
-dict.get(key , default=None)
+      dict.get(key , default=None)
 
-dict.setdefault(key, default=None)
+      dict.setdefault(key, default=None)
 
 3. Python中的while循环和for循环有什么区别？
 
-for 适用于已知循环次数的循环，通常用于遍历可迭代对象，是在序列穷尽时停止。
+      for 适用于已知循环次数的循环，通常用于遍历可迭代对象，是在序列穷尽时停止。
 
-while 适用于未知循环次数的循环，很少进行遍历使用，是在条件不成立时停止。
+      while 适用于未知循环次数的循环，很少进行遍历使用，是在条件不成立时停止。
 
 4. 阅读PEP 636 – Structural Pattern Matching: Tutorial, 总结Python 3.10中新出现的match语句的使用方法。
 
+      匹配序列，匹配多种模式，匹配特定值，匹配多个值，组合模式，捕获匹配的子模式，匹配位置属性等等。
+
 ### 三、实验总结
+1. 此次实验继续学习了python列表的一些操作，主要是通过codewars kata挑战进行了许多实际性操作，锻炼了自己的python编程能力和思维能力，当然还有一些挑战对我而言难度有点大，暂时没能挑战成功。
