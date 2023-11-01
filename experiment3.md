@@ -133,7 +133,7 @@ def disemvowel(string_):
 flowchart  LR
 Start(开始) --> Scanf[用户输入字符串]
     Scanf --> |list函数|zhu[得到字母列表]
-zhu --> |判断|if[列表中字母不是元音字母]
+zhu --> |选择|if[列表中字母不是元音字母]
 if --> |插入|ji[重新排序]
     ji --> |连接|ou[将字母列表中字母重新连接后输出]
     ou --> End(结束)
