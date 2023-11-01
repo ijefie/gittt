@@ -82,7 +82,7 @@ def even_or_odd(number):
 ```mermaid
 flowchart  LR
 Start(开始) --> Scanf[用户输入h,bounce,window]
-    Scanf --> |判断|If{0<h}
+    Scanf --> |判断|If{h是否大于window且window是否大于0且bounce是否大于0小于1}
 If --> |不成立|ou[返回-1]
 If --> |成立|ji[count++]
     ou --> End(结束)
