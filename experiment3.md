@@ -131,15 +131,12 @@ def disemvowel(string_):
 2. 使用Mermaid绘制程序流程图
 ```mermaid
 flowchart  LR
-Start(开始) --> Scanf[用户输入]
-    Scanf --> |判断|If{是否可以整除3}
-If --> |不可以|ou[是否可以整除5]
-If --> |可以|ji[是3或5的倍数]
-ou --> |可以|ji[是3或5的倍数]
-ou --> |不可以|bu[不是3或5的倍数]
-    bu --> End(结束)
-    ji --> End(结束)
-
+Start(开始) --> Scanf[用户输入字符串]
+    Scanf --> |list函数|zhu[得到字母列表]
+zhu --> |判断|if[列表中字母不是元音字母]
+If --> |插入|ji[重新排序]
+    ji --> |连接|ou[将字母列表中字母重新连接后输出]
+    ou --> End(结束)
 ```
 
 
