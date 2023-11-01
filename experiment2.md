@@ -77,14 +77,19 @@ def even_or_odd(number):
 ```
 
 3. 使用Mermaid绘制程序流程图
+
+挑战二
 ```mermaid
 flowchart  LR
-Start(开始) --> Scanf[用户输入]
-    Scanf --> |判断|If{是否是偶数}
-If --> |输出|ou[是偶数]
-If --> |输出|ji[是奇数]
+Start(开始) --> Scanf[用户输入h,bounce,window]
+    Scanf --> |判断|If{0<h and h>window and 0<bounce<1}
+If --> |不成立|ou[返回-1]
+If --> |成立|ji[count++]
     ou --> End(结束)
-    ji --> End(结束)
+    ji --> |判断|if{h*=bounce>window}
+if --> |成立|k[count++]
+if --> |不成立|h[返回count]
+h --> End(结束)
 
 ```
 
