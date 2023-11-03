@@ -278,7 +278,7 @@ If --> |不够|ou[返回False]
 
 2. 在读取和写入字典时，需要使用默认值可以使用什么方法？
 
-      可以使用两种方法：
+      可以使用两种方法：![Alt text](experiment4.md)
 
       dict.get(key , default=None)
 
