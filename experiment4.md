@@ -139,7 +139,7 @@ Amino Acid Dictionary
     'UAA': 'Stop', 'UGA': 'Stop', 'UAG': 'Stop'
 }
 ```
-```bat
+```python
 def protein(rna):
     codons = [rna[i:i+3] for i in range(0, len(rna), 3)]
     chain = []
@@ -157,7 +157,7 @@ def protein(rna):
 您决定写一个名为fillable()的函数，它接受三个参数：一个表示您库存的字典stock，一个表示客户想要购买的商品的字符串merch，以及一个表示他们想购买的商品数量的整数n。如果您有足够的商品库存来完成销售，则函数应返回True，否则应返回False。
 
 有效的数据将始终被传入，并且n将始终大于等于1。
-```bat
+```python
 def fillable(stock, merch, n):
     return stock.get(merch, 0) >= n
 ```
@@ -259,8 +259,14 @@ $    ···–··–
 3. 使用Mermaid绘制程序流程图
 ```mermaid
 flowchart  LR
-
-
+Start(开始) --> Scanf[用户输入库存和商品以及商品购买数]
+    Scanf --> |判断|if{库存中是否有此商品}
+if --> |有|If{商品数量是否足够}
+if --> |没有|ou[返回False]
+If --> |足够|ji[返回True]
+If --> |不够|ou[返回False]
+    ji --> End(结束)
+    ou --> End(结束)
 ```
 
 
