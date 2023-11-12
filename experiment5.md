@@ -74,7 +74,21 @@ def is_pangram(s):
 代码提交地址： https://www.codewars.com/kata/63d1bac72de941033dbf87ae
 
 ```python
-
+def validate_sudoku(board):
+    elements = set(range(1, 10))
+    for b in board:
+        if set(b) != elements: 
+            return False
+    for b in zip(*board):   
+        if set(b) != elements: 
+            return False
+    for i in range(3, 10, 3):
+        for j in range(3, 10, 3):
+            if elements != {(board[q][w]) 
+                            for w in range(j-3, j) 
+                            for q in range(i-3, i)}:
+                return False   
+    return True
 ```
 
 挑战五：
@@ -121,14 +135,43 @@ triangle('RBRGBRBGGRRRBGBBBGG') == 'G'
 
 2. 使用Mermaid绘制程序流程图
 
+第一题
+
 ```mermaid
 flowchart  LR
-Start(开始) --> Scanf[用户输入库存和商品以及商品购买数]
-    Scanf --> |判断|if{库存中是否有此商品}
-if --> |有|If{商品数量是否足够}
-if --> |没有|ou[返回False]
-If --> |足够|ji[返回True]
-If --> |不够|ou[返回False]
+Start(开始) --> Scanf[用户输入句子或字母]
+    Scanf --> slow[将输入的句子按空格进行切片]
+slow --> |判断|If{检查切片中是否有5个或5个以上的单词}
+if --> |没有|ou[直接输出]
+If --> |是|ji[将切片中的字母进行倒序然后输出]
+    ji --> End(结束)
+    ou --> End(结束)
+```
+
+第二题
+
+```mermaid
+flowchart  LR
+Start(开始) --> Scanf[用户输入数据]
+    Scanf --> slow[将奇数放入奇数组中]
+    Scanf --> f[将偶数放入偶数组中]
+slow --> |比较|if{奇数与偶数个数}
+f --> |比较|if{奇数与偶数个数}
+    if --> |奇数多|j[输出偶数]
+    if --> |偶数多|g[输出奇数]
+    j --> End(结束)
+    g --> End(结束)
+```
+
+第三题
+
+```mermaid
+flowchart  LR
+Start(开始) --> Scanf[用户输入句子或字母]
+    Scanf --> slow[将输入的句子或字母全都变成小写字母]
+slow --> |判断|If{检查输入的内容是否包含26个英文字母}
+if --> |否|ou[返回False]
+If --> |是|ji[返回True]
     ji --> End(结束)
     ou --> End(结束)
 ```
@@ -137,11 +180,99 @@ If --> |不够|ou[返回False]
 
 1. 集合（set）类型有什么特点？它和列表（list）类型有什么区别？
 
+Set是最简单的一种集合。集合中的对象不按特定的方式排序，并且没有重复对象。Set接口主要实现了两个实现类：
+
+HashSet : HashSet类按照哈希算法来存取集合中的对象，存取速度比较快
+TreeSet : TreeSet类实现了SortedSet接口，能够对集合中的对象进行排序。
+
+区别：List按对象进入的顺序保存对象，不做排序或编辑操作。Set对每个对象只接受一次，并使用自己内部的排序方法(通常，你只关心某个元素是否属于Set,而不关心它的顺序--否则应该使用List)。
 2. 集合（set）类型主要有那些操作？
+集合（set）类型主要的操作包括创建集合，增删改查和去重，而且能计算集合内元素个数和进行集合的运算操作，比如取交集取并集和异或等等。
 
 3. 使用*操作符作用到列表上会产生什么效果？为什么不能使用*操作符作用到嵌套的列表上？使用简单的代码示例说明。
 
+  创建一个具有指定次数的重复元素的新列表
+
+```python
+# 输入列表
+inputList = [5, 6, 7]
+# 使用*操作符2次重复输入列表
+print(inputList * 2)
+```
+
+输出如下
+
+```python
+[5, 6, 7, 5, 6, 7]
+```
+
+序列或列表中的项目未被复制，而是被多次引用。例如：
+
+```python
+# 输入列表
+inputList_1=[4]
+
+# 使用重复操作符将整个inputList_1乘以三次
+inputList_2= inputList_1*3
+print('未修改的输入列表1：',inputList_1)
+print('未修改的输入列表2：',inputList_2)
+
+# 修改列表的第一个元素值为20
+inputList_1[0]= 20
+# 输出
+print('修改后的输入列表1：',inputList_1)
+print('修改后的输入列表2：',inputList_2)
+
+```
+
+输出
+
+```python
+未修改的输入列表1：[4]
+未修改的输入列表2：[4, 4, 4]
+修改后的输入列表1：[20]
+修改后的输入列表2：[4, 4, 4]
+
+```
+
+进行乘法运算，例如
+
+```python
+a = 1 
+b = 1 
+c = a * b
+```
+
+```python
+c=1
+```
+
 4. 总结列表,集合，字典的解析（comprehension）的使用方法。使用简单的代码示例说明。
+
+列表解析：通过解析表达式从一个可迭代对象生成一个新的列表
+
+```python
+l=[chr(i+ord('A')) for i in range(26) if i%2==0 if i%3==0 if i%4==0 ]#结果为：['A', 'M', 'Y']
+```
+
+集合解析：把列表解析的[替换为{即可，集合自带去重属性。
+
+```python
+numS = set(numL)
+numS![Alt text](experiment5.md)
+# {-2, -1, 0, 1, 2}
+num_squareS = {i**2 for i in numS}
+# 少了一部分
+num_squareS
+# {0, 1, 4}
+```
+
+字典解析：通过解析表达式从一个可迭代对象生成一个新的字典
+
+```python
+d={i:chr(ord('a')+i) for i in [1,1,2,3]}  #结果d的值为：{1: 'b', 2: 'c', 3: 'd'}
+d={i:chr(ord('a')+i+index) for index,i in enumerate([1,1,2,3])} #结果d的值为：{1: 'c', 2: 'e', 3: 'g'}
+```
 
 ### 三、实验总结
 
